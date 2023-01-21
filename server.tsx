@@ -1,3 +1,5 @@
+#!/usr/bin/env DENO_DIR=/tmp deno run
+
 import { serve } from "https://deno.land/std@0.173.0/http/mod.ts";
 import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
 
