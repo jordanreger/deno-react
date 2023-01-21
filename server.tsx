@@ -6,7 +6,7 @@ const SiteManifest = new Map();
 
 for await (const page of Deno.readDir("./pages")) {
   const path = page.name.split(".")[0] === "index" ? "/" : "/" + page.name.split(".")[0];
-  importModule("file:///" + Deno.cwd() + "/pages/" + page.name, { force: true }).then((res: { default: () => void; }) => {
+  importModule("file:///" + (Deno.env.get("DENO_DEPLOYMENT_ID") !== undefined ? "" : Deno.cwd()) + "/pages/" + page.name, { force: true }).then((res: { default: () => void; }) => {
     SiteManifest.set(path, res.default);
   })
 }
