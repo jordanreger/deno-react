@@ -1,22 +1,14 @@
 import { serve } from "https://deno.land/std@0.173.0/http/mod.ts";
 import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
-import { importModule } from 'https://deno.land/x/import/mod.ts';
+import { importModule } from "https://deno.land/x/import@v0.1.7/mod.ts";
 
 const SiteManifest = new Map();
 
-const deploy = Deno.env.get("DENO_DEPLOYMENT_ID") !== undefined;
-
 for await (const page of Deno.readDir("./pages")) {
   const path = page.name.split(".")[0] === "index" ? "/" : "/" + page.name.split(".")[0];
-  if(deploy) {
-    importModule("./pages/" + page.name).then((res: { default: () => void; }) => {
-      SiteManifest.set(path, res.default);
-    })
-  } else {
-    import("./pages/" + page.name).then(res => {
-      SiteManifest.set(path, res.default);
-    })
-  }
+  importModule("file:///" + Deno.cwd() + "./pages/" + page.name, { force: true }).then((res: { default: () => void; }) => {
+    SiteManifest.set(path, res.default);
+  })
 }
 
 function handler(req: Request): Response {
