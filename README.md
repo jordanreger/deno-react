@@ -1,9 +1,13 @@
 # deno-react
 
-> Currently doesn't work on Deno Deploy because of [this error](https://github.com/denoland/deploy_feedback/issues/1). I am working on finding a fix.
-
 deno-react is a *very* minimalist react boilerplate.
 
-all you have to do is add your pages in the `/pages` folder and run `deno task start`! make sure not to remove `/pages/_404.tsx`, otherwise you'll start returning `Internal Server Error` - you can style it however you'd like though!
+### Example
+View the example at [deno-react.deno.dev](https://deno-react.deno.dev).
 
-built by [jordan reger](https://2jr.co)
+### Getting Started
+
+All you have to do is add your pages in the `/pages` folder and run `deno task start`! Make sure not to remove `/pages/_404.tsx`, otherwise you'll start returning `Internal Server Error` - you can style it however you'd like though!
+
+### MIT License
+Copyright (c) 2023 the [futurist.city](https://futurist.city) team. View the whole license [here](https://github.com/jordanreger/deno-react/blob/main/LICENSE).
