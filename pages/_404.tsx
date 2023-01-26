@@ -13,7 +13,7 @@ export default function error() {
         <header>
           <ul>
             <li><a href="/">HOME</a></li>
-            <li><a href="https://futurist.city">FUTURIST.CITY <span className="arrow">↗️</span></a></li>
+            <li><a href="https://futurist.city">FUTURIST <span className="arrow">↗️</span></a></li>
             <li><a href="https://github.com/jordanreger/deno-react">SOURCE <span className="arrow">↗️</span></a></li>
           </ul>
         </header>

@@ -18,7 +18,7 @@ for await (const entry of walk("./pages/")) {
   }
 }
 
-let routes_gen = `import { react_serve } from "./server.ts";`;
+let routes_gen = `import { react_serve } from "./server.ts";\n\n`;
 
 // imports
 routes.forEach((route, index) => {
